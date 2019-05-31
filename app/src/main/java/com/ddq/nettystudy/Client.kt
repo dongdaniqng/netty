@@ -52,7 +52,9 @@ class Client {
             })
             //连接超时时间
             .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 10000)
+            //保持心跳连接
             .option(ChannelOption.SO_KEEPALIVE, true)
+            //tcp无延迟
             .option(ChannelOption.TCP_NODELAY, true)
 
             .connect(ip, port)

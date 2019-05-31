@@ -32,5 +32,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'io.netty:netty-all:4.1.6.Final'
     implementation 'com.github.dongdaniqng:Util:1.0.1'
-
+    implementation 'com.alibaba:fastjson:1.2.57'
 }
