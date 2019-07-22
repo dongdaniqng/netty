@@ -61,8 +61,6 @@ class Server {
             //处理业务逻辑
             .childHandler(object : ChannelInitializer<NioSocketChannel>() {
                 override fun initChannel(ch: NioSocketChannel) {
-                    ch.pipeline().addLast(StringDecoder())
-                    ch.pipeline().addLast(StringEncoder())
                     ch.pipeline().addLast(ServerHandler1())
                 }
             })

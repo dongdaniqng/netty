@@ -5,8 +5,6 @@ import io.netty.channel.ChannelInitializer
 import io.netty.channel.ChannelOption
 import io.netty.channel.nio.NioEventLoopGroup
 import io.netty.channel.socket.nio.NioSocketChannel
-import io.netty.handler.codec.string.StringDecoder
-import io.netty.handler.codec.string.StringEncoder
 
 /**
  * Author : ddq
@@ -37,7 +35,7 @@ class Client {
 
         val group = NioEventLoopGroup()
 
-        val ip = "192.168.0.151"
+        val ip = "192.168.0.10"
         val port = 9999
 
         val channel = bootstrap.group(group)
@@ -45,9 +43,7 @@ class Client {
             .handler(object : ChannelInitializer<NioSocketChannel>() {
                 override fun initChannel(ch: NioSocketChannel) {
                     println("init client")
-                    ch.pipeline().addLast(StringEncoder())
-                    ch.pipeline().addLast(StringDecoder())
-                    ch.pipeline().addLast(ClientHandler1())
+                    ch.pipeline().addLast(ClientLoginHandler())
                 }
             })
             //连接超时时间
